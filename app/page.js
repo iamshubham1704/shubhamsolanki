@@ -170,8 +170,8 @@ export default function Home() {
             <span>TypeScript</span>
           </div>
           <div className="skill-card">
-            <img src="/python.svg" alt="JavaScript" />
-            <span>Pythoh</span>
+            <img src="/Python.svg" alt="JavaScript" />
+            <span>Python</span>
           </div>
           <div className="skill-card">
             <img src="/react.png" alt="React" />
