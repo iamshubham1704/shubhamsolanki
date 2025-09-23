@@ -46,7 +46,7 @@ export default function Home() {
         <div className="links-grid">
           <a href="https://github.com/iamshubham1704" target="_blank" rel="noopener noreferrer" className="link-card">GitHub</a>
           <a href="https://linkedin.com/in/shubham-solanki-902331321" target="_blank" rel="noopener noreferrer" className="link-card">LinkedIn</a>
-          <a href="https://coencers.com" target="_blank" rel="noopener noreferrer" className="link-card">Coencers</a>
+          <a href="https://www.campusmart.store/" target="_blank" rel="noopener noreferrer" className="link-card">Campusmart</a>
         </div>
       </section>
 
@@ -88,11 +88,27 @@ export default function Home() {
         <h2 className="section-title">Experience</h2>
         <div className="experience-timeline">
           <div className="experience-item">
-            <div className="experience-date">Jan 2025 – Present</div>
+            <div className="experience-date">Aug 2025 – Present</div>
             <div className="experience-content">
-              <h3>Founder</h3>
-              <h4>Coencers</h4>
-              <p>A platform which builds connections between Companies and Influencers.</p>
+              <h3>Co-Founder</h3>
+              <h4>Campusmart</h4>
+              <p>Biggest Marketplace of MAIT</p>
+            </div>
+          </div>
+          <div className="experience-item">
+            <div className="experience-date">Feb 2025 – Present</div>
+            <div className="experience-content">
+              <h3>Co-Founder</h3>
+              <h4>Pyice</h4>
+              <p>AI powered Extension</p>
+            </div>
+          </div>
+          <div className="experience-item">
+            <div className="experience-date">Sep 2025 – Present</div>
+            <div className="experience-content">
+              <h3>AI Mentor</h3>
+              <h4>Google Developer Group, MAIT</h4>
+              <p></p>
             </div>
           </div>
 
