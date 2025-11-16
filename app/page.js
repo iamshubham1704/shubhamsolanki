@@ -115,8 +115,8 @@ export default function Home() {
           <div className="experience-item">
             <div className="experience-date">Aug 2024 – Present</div>
             <div className="experience-content">
-              <h3>Member</h3>
-              <h4>Startup Shpere</h4>
+              <h3>Co-Head</h3>
+              <h4>Venture Lab, Startup Shpere</h4>
               <p>Won HackwithMait Hackathon.</p>
             </div>
           </div>
