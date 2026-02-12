@@ -6,7 +6,7 @@ export default function ExperienceOutput() {
         { date: "Sep 2025 – Present", role: "AI Mentor", org: "Google Developer Group, MAIT", desc: "" },
         { date: "Aug 2024 – Present", role: "Co-Head (Venture lab)", org: "Startup sphere", desc: "Won HackwithMait Hackathon. | Provided exclusive Tech guidance to team" },
         { date: "June 2025", role: "Contributor", org: "Social Summer of Code", desc: "" },
-        { date: "March 2025 – May 2025", role: "Head of Finance", org: "AnalytixLabs", desc: "" },
+        { date: "March 2025 – May 2025", role: "Head of Finance", org: "AnalytixLabs", desc: "" }
     ];
 
     return (
