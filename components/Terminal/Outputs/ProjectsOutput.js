@@ -21,7 +21,7 @@ export default function ProjectsOutput() {
             desc: "Fetching Graphs of Stocks using API and providing Trends. Includes AI assistant Stocky.",
             link: "https://github.com/iamshubham1704/stock-market-analyser",
         },
-
+       
     ];
 
     const freelance = [

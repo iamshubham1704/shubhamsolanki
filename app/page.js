@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import './home.css';
 import BootLoader from '@/components/BootLoader/BootLoader';
 import HackerBackground from '@/components/HackerBackground/HackerBackground';
