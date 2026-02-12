@@ -1,0 +1,129 @@
+.terminal-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-history {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.user-cmd {
+    color: var(--neon-cyan);
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.system-msg {
+    color: var(--neon-green);
+    opacity: 0.8;
+}
+
+.error-msg {
+    color: #ff0055;
+}
+
+.terminal-input-area {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-top: 1px solid #333;
+    position: sticky;
+    bottom: 0;
+}
+
+.prompt {
+    color: var(--neon-green);
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1.1rem;
+    outline: none;
+    caret-color: transparent;
+    /* Custom cursor used */
+}
+
+.cursor-block {
+    width: 10px;
+    height: 1.2rem;
+    background-color: var(--neon-green);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@media (max-width: 768px) {
+    .terminal-container {
+        padding: 1rem;
+        min-height: 90vh;
+    }
+
+    .terminal-history {
+        margin-bottom: 1rem;
+    }
+
+    .terminal-input-area {
+        padding: 0.5rem;
+    }
+
+    .terminal-input {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .terminal-container {
+        padding: 0.5rem;
+    }
+
+    /* Adjust for specific output components via global styles or distinct classes if needed */
+    .terminal-card {
+        padding: 0.75rem !important;
+    }
+}
