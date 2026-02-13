@@ -5,21 +5,17 @@ export default function MilestonesOutput() {
         {
             date: "Sept 2024",
             title: "Won HackwithMait 5.0",
-            desc: "Secured 1st position in the college-wide hackathon (1st Semester)."
+            desc: "Secured 1st position in the college-wide hackathon ."
         },
         {
             date: "2024",
             title: "Won GDG SRCASW Hackathon",
             desc: "Recognized for innovative problem solving."
         },
-        {
-            date: "2024-2025",
-            title: "5+ Hackathon Finalist",
-            desc: "Consistently delivering high-quality prototypes in competitive environments."
-        },
+        
         {
             date: "2025",
-            title: "Created Campusmart",
+            title: "Created Campusmart(now collegepaglu)",
             desc: "Built and launched the biggest marketplace for MAIT campus."
         }
     ];

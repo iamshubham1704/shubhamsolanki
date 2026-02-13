@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ExperienceOutput() {
     const exp = [
-        { date: "Aug 2025 – Present", role: "Co-Founder", org: "CollegePaglu(formaly campusmart", desc: "All in one app for college students" },
+        { date: "Aug 2025 – Present", role: "Co-Founder", org: "CollegePaglu(formally campusmart", desc: "All in one app for college students" },
         { date: "Sep 2025 – Present", role: "AI Mentor", org: "Google Developer Group, MAIT", desc: "" },
         { date: "Aug 2024 – Present", role: "Co-Head (Venture lab)", org: "Startup sphere", desc: "Won HackwithMait Hackathon. | Provided exclusive Tech guidance to team" },
         { date: "June 2025", role: "Contributor", org: "Social Summer of Code", desc: "" },

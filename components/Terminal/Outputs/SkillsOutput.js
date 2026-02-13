@@ -2,11 +2,10 @@ import React from 'react';
 
 export default function SkillsOutput() {
     const skills = [
-        "HTML", "CSS", "JavaScript", "TypeScript", "Python",
+        "JavaScript", "TypeScript", "Python",
         "React", "Next.js", "React Native", "MongoDB", "Node.js",
-        "C", "C++", "IOT", "AWS", "Firebase",
-        "Android", "Arduino", "Chart.js", "Dart",
-        "Figma", "Flutter", "Git"
+        "C", "C++", "IOT"
+
     ];
 
     return (
