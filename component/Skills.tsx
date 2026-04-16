@@ -4,20 +4,20 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const skills = [
-  { name: "CSS", icon: "/skills/css.png" },
-  { name: "github", icon: "/skills/github.png" },
-  { name: "html", icon: "/skills/html.png" },
-  { name: "js", icon: "/skills/js.png" },
-  { name: "mongo", icon: "/skills/mongo.png" },
-  { name: "nextjs", icon: "/skills/nextjs.png" },
-  { name: "react", icon: "/skills/react.png" },
-  { name: "typescript", icon: "/skills/typescript.png" },
-  { name: "python", icon: "/skills/python.png" },
-  { name: "sql", icon: "/skills/sql.png" },
-  { name: "node.js", icon: "/skills/node.js.png" },
-  { name: "atom", icon: "/skills/atom.png" },
-  { name: "C", icon: "/skills/C.png" },
-  { name: "C++", icon: "/skills/C++.png" },
+  { name: "CSS", icon: "/css.png" },
+  { name: "github", icon: "/github.png" },
+  { name: "html", icon: "/html.png" },
+  { name: "js", icon: "/js.png" },
+  { name: "mongo", icon: "/mongo.png" },
+  { name: "nextjs", icon: "/nextjs.png" },
+  { name: "react", icon: "/react.png" },
+  { name: "typescript", icon: "/typescript.png" },
+  { name: "python", icon: "/python.png" },
+  { name: "sql", icon: "/sql.png" },
+  { name: "node.js", icon: "/node.js.png" },
+  { name: "atom", icon: "/atom.png" },
+  { name: "C", icon: "/C.png" },
+  { name: "C++", icon: "/C++.png" },
 ];
 
 const random = (min: number, max: number) => Math.random() * (max - min) + min;
@@ -81,8 +81,7 @@ const Skills = () => {
                 src={skill.icon}
                 alt={skill.name}
                 width={40}
-                height={40}
-                className="w-10 h-10 object-contain"
+                heigh                className="w-10 h-10 object-contain"
               />
               <span className="text-sm text-white mt-1">
                 {skill.name}
