@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, Loader2, CheckCircle, XCircle } from "lucide-react";
+import { Mail, MapPin, Send, Loader2, CheckCircle, XCircle } from "lucide-react";
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });

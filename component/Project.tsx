@@ -20,7 +20,7 @@ const projects = [
 
 const Project = () => {
   return (
-    <section className="bg-[#05070d] text-white py-20 px-6">
+    <section id="projects" className="bg-[#05070d] text-white py-20 px-6">
       
       {/* Heading */}
       <div className="max-w-6xl mx-auto mb-12">

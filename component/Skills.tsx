@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -24,12 +24,22 @@ const random = (min: number, max: number) => Math.random() * (max - min) + min;
 
 const Skills = () => {
   const [scatter, setScatter] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(1024);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Circular cluster positions
-  const radius = 120;
+  const radius = windowWidth < 600 ? 100 : 120;
+  const scatterRangeX = windowWidth < 600 ? 140 : 300;
+  const scatterRangeY = windowWidth < 600 ? 180 : 250;
 
   return (
-    <section
+    <section id="skills"
       className="relative h-screen bg-[#05070d] flex items-center justify-center overflow-hidden"
       onMouseEnter={() => setScatter(true)}
       onMouseLeave={() => setScatter(false)}
@@ -39,7 +49,7 @@ const Skills = () => {
         My <span className="text-blue-400">Skills</span>
       </h2>
 
-      <div className="relative w-125 h-125 flex items-center justify-center">
+      <div className="relative w-full max-w-[500px] h-[400px] sm:h-[500px] flex items-center justify-center">
 
         {skills.map((skill, i) => {
           const angle = (i / skills.length) * 2 * Math.PI;
@@ -51,14 +61,14 @@ const Skills = () => {
             <motion.div
               key={i}
               className="absolute flex flex-col items-center justify-center 
-                         w-28 h-28 rounded-full bg-white/10 backdrop-blur-md 
+                         w-20 h-20 sm:w-28 sm:h-28 rounded-full bg-white/10 backdrop-blur-md 
                          border border-white/20 cursor-pointer"
               
               animate={
                 scatter
                   ? {
-                      x: random(-300, 300),
-                      y: random(-250, 250),
+                      x: random(-scatterRangeX, scatterRangeX),
+                      y: random(-scatterRangeY, scatterRangeY),
                     }
                   : {
                       x: clusterX,
@@ -82,9 +92,9 @@ const Skills = () => {
                 alt={skill.name}
                 width={40}
                 height={40}
-                className="w-10 h-10 object-contain"
+                className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
               />
-              <span className="text-sm text-white mt-1">
+              <span className="text-xs sm:text-sm text-white mt-1">
                 {skill.name}
               </span>
             </motion.div>

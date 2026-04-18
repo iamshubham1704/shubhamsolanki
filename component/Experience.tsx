@@ -35,7 +35,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section className="bg-[#05070d] text-white py-20 px-6">
+    <section id="experience" className="bg-[#05070d] text-white py-20 px-6">
       
       {/* Heading */}
       <div className="max-w-5xl mx-auto mb-12">

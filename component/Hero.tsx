@@ -34,7 +34,7 @@ const Hero = () => {
     };
 
     return (
-        <section className="relative min-h-screen bg-[#05070d] text-white flex items-center justify-center px-6">
+        <section id="hero" className="relative min-h-screen bg-[#05070d] text-white flex items-center justify-center px-6">
 
             {/* Background Grid */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[40px_40px]"></div>
@@ -56,7 +56,7 @@ const Hero = () => {
                         I build systems that people actually use.
                     </p>
                     {/* Stats */}
-                    <div className="mt-8 flex gap-10 flex-wrap">
+                    <div className="mt-8 flex gap-6 sm:gap-10 flex-wrap">
 
                         <div>
                             <h3 className="text-2xl font-semibold text-white">30+</h3>
@@ -104,13 +104,13 @@ const Hero = () => {
 
 
                 {/* RIGHT (Slider) */}
-                <div className="relative flex justify-center">
+                <div className="relative flex justify-center w-full mt-10 md:mt-0">
 
                     {/* Glow */}
-                    <div className="absolute w-112.5 h-87.5 bg-blue-500/20 blur-3xl rounded-full"></div>
+                    <div className="absolute w-full max-w-[450px] h-64 sm:h-[350px] bg-blue-500/20 blur-3xl rounded-full"></div>
 
                     {/* Slider Card */}
-                    <div className="relative w-105 h-75 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                    <div className="relative w-full max-w-[420px] h-60 sm:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
 
                         {/* Image */}
                         <Image
