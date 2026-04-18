@@ -75,15 +75,7 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10">
-                            <div className="bg-cyan-500/10 p-4 rounded-xl text-cyan-400 group-hover:scale-110 transition-transform">
-                                <Phone size={24} />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-semibold mb-1">Phone</h3>
-                                <p className="text-gray-400">+91 00000 00000</p>
-                            </div>
-                        </div>
+                        
 
                         <div className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10">
                             <div className="bg-purple-500/10 p-4 rounded-xl text-purple-400 group-hover:scale-110 transition-transform">

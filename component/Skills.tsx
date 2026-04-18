@@ -14,7 +14,7 @@ const skills = [
   { name: "typescript", icon: "/typescript.png" },
   { name: "python", icon: "/python.png" },
   { name: "sql", icon: "/sql.png" },
-  { name: "node.js", icon: "/node.js.png" },
+  { name: "node.js", icon: "/Node.js.png" },
   { name: "atom", icon: "/atom.png" },
   { name: "C", icon: "/C.png" },
   { name: "C++", icon: "/C++.png" },
@@ -81,7 +81,8 @@ const Skills = () => {
                 src={skill.icon}
                 alt={skill.name}
                 width={40}
-                heigh                className="w-10 h-10 object-contain"
+                height={40}
+                className="w-10 h-10 object-contain"
               />
               <span className="text-sm text-white mt-1">
                 {skill.name}
