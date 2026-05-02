@@ -92,7 +92,7 @@ const Skills = () => {
                 alt={skill.name}
                 width={40}
                 height={40}
-                className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                className="w-8 h-auto sm:w-10 object-contain"
               />
               <span className="text-xs sm:text-sm text-white mt-1">
                 {skill.name}

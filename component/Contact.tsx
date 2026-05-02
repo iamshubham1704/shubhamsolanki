@@ -110,6 +110,7 @@ const Contact = () => {
                                     required
                                     placeholder="John Doe" 
                                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all"
+                                    suppressHydrationWarning
                                 />
                             </div>
                             <div className="space-y-2">
@@ -122,6 +123,7 @@ const Contact = () => {
                                     required
                                     placeholder="john@example.com" 
                                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all"
+                                    suppressHydrationWarning
                                 />
                             </div>
                         </div>
@@ -136,6 +138,7 @@ const Contact = () => {
                                 required
                                 placeholder="How can I help you?" 
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all"
+                                suppressHydrationWarning
                             />
                         </div>
 
@@ -149,6 +152,7 @@ const Contact = () => {
                                 required
                                 placeholder="Your message here..." 
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all resize-none"
+                                suppressHydrationWarning
                             ></textarea>
                         </div>
 
@@ -156,6 +160,7 @@ const Contact = () => {
                             type="submit" 
                             disabled={status === "loading"}
                             className="w-full bg-linear-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 disabled:opacity-70 disabled:cursor-not-allowed text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-500/25 relative z-10"
+                            suppressHydrationWarning
                         >
                             {status === "idle" && (
                                 <>

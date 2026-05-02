@@ -16,6 +16,11 @@ const projects = [
     desc: "AI-powered system to conduct and evaluate interviews.",
     link: "https://github.com/iamshubham1704/Cheating",
   },
+  {
+    name: "TollyPips",
+    desc: "A collection of AI-powered web tools and utilities.",
+    link: "https://tollypips.vercel.app",
+  },
 ];
 
 const Project = () => {
@@ -33,7 +38,7 @@ const Project = () => {
       </div>
 
       {/* Grid */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
 
         {projects.map((project, index) => (
           <a
