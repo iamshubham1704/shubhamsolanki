@@ -19,6 +19,7 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "React", icon: "/react.png" },
       { name: "Next.js", icon: "/nextjs.png" },
+      { name: "React Native", icon: "/atom.png" },
       { name: "HTML5", icon: "/html.png" },
       { name: "CSS3", icon: "/css.png" },
     ],
@@ -38,7 +39,7 @@ const skillCategories: SkillCategory[] = [
       { name: "C++", icon: "/C++.png" },
       { name: "C", icon: "/C.png" },
       { name: "GitHub", icon: "/github.png" },
-      { name: "React Native", icon: "/atom.png" },
+
       { name: "Python", icon: "/python.png" },
       { name: "TypeScript", icon: "/typescript.png" },
       { name: "JavaScript", icon: "/js.png" },

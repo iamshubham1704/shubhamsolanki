@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 const experiences = [
   {
@@ -35,44 +37,52 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="bg-[#05070d] text-white py-20 px-6">
+    <section id="experience" className="bg-[#05070d] text-white py-24 px-6 relative overflow-hidden">
       
       {/* Heading */}
-      <div className="max-w-5xl mx-auto mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold">
+      <div className="max-w-5xl mx-auto mb-16">
+        <span className="text-blue-400 font-semibold tracking-wider text-sm uppercase">History</span>
+        <h2 className="text-3xl md:text-4xl font-bold mt-2">
           My <span className="text-blue-400">Experience</span>
         </h2>
         <p className="text-gray-400 mt-2">
-          What I’ve been working on recently
+          Professional roles and leadership positions I've held
         </p>
       </div>
 
-      {/* Timeline */}
-      <div className="max-w-5xl mx-auto relative border-l border-white/10 pl-6 space-y-10">
+      {/* Timeline Container */}
+      <div className="max-w-5xl mx-auto relative border-l border-white/10 pl-8 md:pl-10 space-y-12">
 
         {experiences.map((exp, index) => (
-          <div key={index} className="relative">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="relative group"
+          >
+            {/* Timeline Dot (Perfectled centered on border-l line: -left-10 on mobile, md:-left-12 on desktop) */}
+            <div className="absolute -left-[40px] md:-left-[48px] top-6 w-4 h-4 rounded-full border border-blue-400 bg-[#05070d] flex items-center justify-center transition-all duration-300 group-hover:scale-125 group-hover:border-cyan-400 group-hover:shadow-[0_0_10px_rgba(34,211,238,0.5)]">
+              <div className="w-1.5 h-1.5 bg-blue-400 rounded-full group-hover:bg-cyan-400 transition-colors"></div>
+            </div>
 
-            {/* Dot */}
-            <div className="absolute -left-2.5 top-2 w-4 h-4 bg-blue-400 rounded-full"></div>
+            {/* Experience Card */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md hover:bg-white/10 hover:border-blue-500/20 transition-all duration-300 hover:scale-[1.01]">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <h3 className="text-xl font-semibold text-white">
+                  {exp.role} <span className="text-blue-400">@ {exp.company}</span>
+                </h3>
+                <span className="text-sm font-medium text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/5 self-start sm:self-auto">
+                  {exp.duration}
+                </span>
+              </div>
 
-            {/* Card */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-md hover:bg-white/10 transition">
-
-              <h3 className="text-lg font-semibold">
-                {exp.role} <span className="text-blue-400">@ {exp.company}</span>
-              </h3>
-
-              <p className="text-sm text-gray-400 mt-1">
-                {exp.duration}
-              </p>
-
-              <p className="text-gray-300 mt-3 text-sm">
+              <p className="text-gray-300 mt-4 text-sm leading-relaxed">
                 {exp.desc}
               </p>
-
             </div>
-          </div>
+          </motion.div>
         ))}
 
       </div>
