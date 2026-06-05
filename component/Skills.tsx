@@ -19,7 +19,6 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "React", icon: "/react.png" },
       { name: "Next.js", icon: "/nextjs.png" },
-      { name: "JavaScript", icon: "/js.png" },
       { name: "HTML5", icon: "/html.png" },
       { name: "CSS3", icon: "/css.png" },
     ],
@@ -28,10 +27,9 @@ const skillCategories: SkillCategory[] = [
     title: "Backend & Databases",
     skills: [
       { name: "Node.js", icon: "/Node.js.png" },
-      { name: "TypeScript", icon: "/typescript.png" },
       { name: "MongoDB", icon: "/mongo.png" },
       { name: "SQL", icon: "/sql.png" },
-     
+
     ],
   },
   {
@@ -41,7 +39,9 @@ const skillCategories: SkillCategory[] = [
       { name: "C", icon: "/C.png" },
       { name: "GitHub", icon: "/github.png" },
       { name: "React Native", icon: "/atom.png" },
-       { name: "Python", icon: "/python.png" },
+      { name: "Python", icon: "/python.png" },
+      { name: "TypeScript", icon: "/typescript.png" },
+      { name: "JavaScript", icon: "/js.png" },
     ],
   },
 ];
@@ -49,7 +49,7 @@ const skillCategories: SkillCategory[] = [
 const Skills = () => {
   return (
     <section id="skills" className="relative bg-[#05070d] py-24 px-6 text-white min-h-screen flex flex-col justify-center overflow-hidden">
-      
+
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/5 blur-3xl rounded-full -z-10"></div>
 
