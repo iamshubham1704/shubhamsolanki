@@ -143,7 +143,8 @@ const desktopCoordinates = [
 ];
 
 const Timeline = () => {
-  const [activeIdx, setActiveIdx] = useState(10); // Default to the latest event (Always Building)
+  const [activeIdx, setActiveIdx] = useState(10); // Default desktop index
+  const [mobileIdx, setMobileIdx] = useState(0);  // Mobile swipable index
 
   // Whitelisted Tailwind classes for static compilation
   const badgeStyles: Record<string, string> = {
@@ -217,8 +218,11 @@ const Timeline = () => {
         <h2 className="text-4xl md:text-5xl font-bold mt-2">
           Coding <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Journey</span>
         </h2>
-        <p className="text-gray-400 mt-4 max-w-xl text-lg">
+        <p className="text-gray-400 mt-4 max-w-xl text-lg hidden md:block">
           Hover over the path nodes to explore details of each milestone.
+        </p>
+        <p className="text-gray-400 mt-4 max-w-xl text-lg md:hidden">
+          Swipe left or right to follow my journey.
         </p>
       </div>
 
@@ -371,60 +375,89 @@ const Timeline = () => {
         </div>
       </div>
 
-      {/* 2. MOBILE Compact Vertical Fallback Timeline */}
-      <div className="md:hidden max-w-lg mx-auto relative border-l border-white/10 pl-8 space-y-12">
-        {timelineEvents.map((event, index) => {
-          const selectedBadgeGlow = badgeStyles[event.color] || "bg-blue-500/10 text-blue-400 border-blue-500/20";
-          const selectedGlow = glowStyles[event.color] || "group-hover:border-blue-500/30";
-          const selectedPointGlow = pointGlowStyles[event.color] || "bg-blue-500/10 border-blue-500/50";
+      {/* 2. MOBILE Compact Horizontal Swipable Slider (Replaces vertical list) */}
+      <div className="md:hidden flex flex-col items-center w-full mt-4">
+        
+        {/* Swipe container with snap scrolling */}
+        <div
+          className="w-full flex overflow-x-auto gap-4 px-4 pb-6 snap-x snap-mandatory scrollbar-none"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          onScroll={(e) => {
+            const container = e.currentTarget;
+            const scrollPosition = container.scrollLeft;
+            const index = Math.round(scrollPosition / (container.scrollWidth / timelineEvents.length));
+            if (index >= 0 && index < timelineEvents.length) {
+              setMobileIdx(index);
+            }
+          }}
+        >
+          {timelineEvents.map((event, index) => {
+            const selectedBadgeGlow = badgeStyles[event.color] || "bg-blue-500/10 text-blue-400 border-blue-500/20";
+            const selectedGlow = glowStyles[event.color] || "group-hover:border-blue-500/30";
+            const selectedPointGlow = pointGlowStyles[event.color] || "bg-blue-500/10 border-blue-500/50";
 
-          return (
-            <div key={index} className="relative group">
-              
-              {/* Timeline Dot centered on vertical line */}
-              <div className="absolute -left-[40px] top-4 w-6 h-6 rounded-full border border-blue-400/50 bg-[#05070d] flex items-center justify-center -translate-y-1/2 z-10 transition-all duration-300 group-hover:scale-110">
-                <div className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all duration-300 ${selectedPointGlow}`}>
-                  {event.icon}
-                </div>
-              </div>
-
-              {/* Vertical Card */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4 }}
-                className={`bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-md transition-all duration-300 hover:scale-[1.01] ${selectedGlow}`}
+            return (
+              <div
+                key={index}
+                className={`w-[85vw] shrink-0 snap-center bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-md relative overflow-hidden flex flex-col justify-between min-h-[200px] transition-all duration-300 ${selectedGlow}`}
               >
-                <div className="flex items-center justify-between gap-4 mb-2">
-                  <span className="text-blue-400 font-bold tracking-wide text-base">
-                    {event.date}
-                  </span>
-                  {event.badge && (
-                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium border ${selectedBadgeGlow}`}>
-                      {event.badge}
-                    </span>
+                
+                {/* Subtle colored glow indicating event active color */}
+                <div className={`absolute top-0 right-0 w-24 h-24 blur-3xl rounded-full opacity-35 transition-all duration-300 ${detailsGlowStyles[event.color]}`} />
+
+                <div>
+                  {/* Top Bar: Date, Badge, and Icon */}
+                  <div className="flex items-center justify-between mb-4 relative z-10">
+                    <div className="flex items-center gap-2">
+                      <span className="text-blue-400 font-bold text-lg leading-none">
+                        {event.date}
+                      </span>
+                      {event.badge && (
+                        <span className={`text-[9px] px-1.5 py-0.5 rounded-full font-medium border leading-none ${selectedBadgeGlow}`}>
+                          {event.badge}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center border bg-[#05070d] ${selectedPointGlow}`}>
+                      {event.icon}
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <h3 className="text-base font-bold text-white leading-tight">
+                    {event.title}
+                  </h3>
+                  {event.subtitle && (
+                    <p className="text-[11px] text-gray-400 font-medium mt-0.5">
+                      {event.subtitle}
+                    </p>
                   )}
+                  
+                  <p className="text-xs text-gray-300 mt-3 leading-relaxed">
+                    {event.desc}
+                  </p>
                 </div>
 
-                <h3 className="text-lg font-semibold text-white tracking-tight">
-                  {event.title}
-                </h3>
-                
-                {event.subtitle && (
-                  <p className="text-xs text-gray-400 mt-0.5 font-medium">
-                    {event.subtitle}
-                  </p>
-                )}
+              </div>
+            );
+          })}
+        </div>
 
-                <p className="text-gray-300 mt-3 text-sm leading-relaxed">
-                  {event.desc}
-                </p>
-              </motion.div>
+        {/* Custom Progress Bar Indicator */}
+        <div className="w-1/2 max-w-[180px] h-1 bg-white/10 rounded-full overflow-hidden mt-4">
+          <motion.div
+            className="h-full bg-linear-to-r from-blue-400 to-cyan-400"
+            animate={{ width: `${((mobileIdx + 1) / timelineEvents.length) * 100}%` }}
+            transition={{ duration: 0.15 }}
+          />
+        </div>
 
-            </div>
-          );
-        })}
+        {/* Indicator steps indicator */}
+        <span className="text-[10px] text-gray-500 mt-2 font-medium">
+          Swipe to navigate ({mobileIdx + 1}/{timelineEvents.length})
+        </span>
+
       </div>
 
     </section>
