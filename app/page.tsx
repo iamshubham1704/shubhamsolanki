@@ -4,6 +4,7 @@ import Navbar from "@/component/Navbar";
 import Project from "@/component/Project";
 import Skills from "@/component/Skills";
 import Contact from "@/component/Contact";
+import Timeline from "@/component/Timeline";
 
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
     <div>
       <Navbar />
       <Hero/>
+      <Timeline />
       <Project/>
       <Experience/>
       <Skills/>
