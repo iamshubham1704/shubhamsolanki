@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #07090f;
+  --foreground: #f5f7fb;
+  --muted: #9aa3b2;
+  --line: rgba(255, 255, 255, 0.09);
+  --accent: #7dd3fc;
 }
 
 @theme inline {
@@ -12,15 +15,48 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.28);
+  color: white;
+}
+
+.site-shell {
+  background:
+    radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.1), transparent 32rem),
+    #07090f;
+}
+
+.eyebrow {
+  letter-spacing: 0.18em;
+}
+
+*:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hide scrollbar for mobile timeline swiper */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }

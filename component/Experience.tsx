@@ -63,7 +63,7 @@ const Experience = () => {
             className="relative group"
           >
             {/* Timeline Dot (Perfectled centered on border-l line: -left-10 on mobile, md:-left-12 on desktop) */}
-            <div className="absolute -left-[40px] md:-left-[48px] top-6 w-4 h-4 rounded-full border border-blue-400 bg-[#05070d] flex items-center justify-center transition-all duration-300 group-hover:scale-125 group-hover:border-cyan-400 group-hover:shadow-[0_0_10px_rgba(34,211,238,0.5)]">
+            <div className="absolute -left-10 md:-left-12 top-6 w-4 h-4 rounded-full border border-blue-400 bg-[#05070d] flex items-center justify-center transition-all duration-300 group-hover:scale-125 group-hover:border-cyan-400 group-hover:shadow-[0_0_10px_rgba(34,211,238,0.5)]">
               <div className="w-1.5 h-1.5 bg-blue-400 rounded-full group-hover:bg-cyan-400 transition-colors"></div>
             </div>
 

@@ -52,7 +52,7 @@ const Skills = () => {
     <section id="skills" className="relative bg-[#05070d] py-24 px-6 text-white min-h-screen flex flex-col justify-center overflow-hidden">
 
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/5 blur-3xl rounded-full -z-10"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-blue-500/5 blur-3xl rounded-full -z-10"></div>
 
       {/* Heading */}
       <div className="max-w-6xl mx-auto w-full mb-16 text-center md:text-left">

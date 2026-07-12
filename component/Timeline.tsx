@@ -227,7 +227,7 @@ const Timeline = () => {
       </div>
 
       {/* 1. DESKTOP Winding Winding Horizontal Snake Timeline */}
-      <div className="hidden md:block w-full max-w-4xl mx-auto relative aspect-[1000/420] select-none mb-12">
+      <div className="hidden md:block w-full max-w-4xl mx-auto relative aspect-1000/420 select-none mb-12">
         
         {/* SVG Path Background and Colored Animated Path */}
         <svg viewBox="0 0 1000 420" className="absolute inset-0 w-full h-full text-white/5 fill-none z-0">
@@ -302,7 +302,7 @@ const Timeline = () => {
 
               {/* Compact text label above the node */}
               <div
-                className={`absolute -translate-x-1/2 w-[140px] text-center transition-all duration-300 ${
+                className={`absolute -translate-x-1/2 w-35 text-center transition-all duration-300 ${
                   isActive ? "-top-15" : "-top-14"
                 }`}
               >
@@ -344,7 +344,7 @@ const Timeline = () => {
               </div>
 
               {/* Text Info */}
-              <div className="flex-grow">
+              <div className="grow">
                 <div className="flex items-center justify-between gap-3 mb-2">
                   <div className="flex items-center gap-3">
                     <span className="text-blue-400 font-bold text-lg">{activeEvent.date}</span>
@@ -399,7 +399,7 @@ const Timeline = () => {
             return (
               <div
                 key={index}
-                className={`w-[85vw] shrink-0 snap-center bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-md relative overflow-hidden flex flex-col justify-between min-h-[200px] transition-all duration-300 ${selectedGlow}`}
+                className={`w-[85vw] shrink-0 snap-center bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-md relative overflow-hidden flex flex-col justify-between min-h-50 transition-all duration-300 ${selectedGlow}`}
               >
                 
                 {/* Subtle colored glow indicating event active color */}
@@ -445,7 +445,7 @@ const Timeline = () => {
         </div>
 
         {/* Custom Progress Bar Indicator */}
-        <div className="w-1/2 max-w-[180px] h-1 bg-white/10 rounded-full overflow-hidden mt-4">
+        <div className="w-1/2 max-w-45 h-1 bg-white/10 rounded-full overflow-hidden mt-4">
           <motion.div
             className="h-full bg-linear-to-r from-blue-400 to-cyan-400"
             animate={{ width: `${((mobileIdx + 1) / timelineEvents.length) * 100}%` }}

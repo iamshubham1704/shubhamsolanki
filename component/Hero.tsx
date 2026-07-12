@@ -123,10 +123,10 @@ const Hero = () => {
                 <div className="relative flex justify-center w-full mt-10 md:mt-0">
 
                     {/* Glow */}
-                    <div className="absolute w-full max-w-[450px] h-64 sm:h-[350px] bg-blue-500/20 blur-3xl rounded-full"></div>
+                    <div className="absolute w-full max-w-112.5 h-64 sm:h-87.5 bg-blue-500/20 blur-3xl rounded-full"></div>
 
                     {/* Slider Card */}
-                    <div className="relative w-full max-w-[420px] h-60 sm:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+                    <div className="relative w-full max-w-105 h-60 sm:h-75 rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
 
                         {/* Image */}
                         <Image

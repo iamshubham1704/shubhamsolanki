@@ -13,8 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shubham Solanki",
-  description: "Shubham Solanki",
+  title: "Shubham Solanki — Product Engineer & AI Builder",
+  description:
+    "Portfolio of Shubham Solanki — Product Engineer and AI Builder. Building systems that people actually use.",
+  keywords: ["Shubham Solanki", "Product Engineer", "AI Builder", "Full Stack Developer", "Delhi"],
+  openGraph: {
+    title: "Shubham Solanki — Product Engineer & AI Builder",
+    description: "Building systems that people actually use.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}
