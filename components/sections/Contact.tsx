@@ -24,6 +24,7 @@ const contactInfo = [
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -32,6 +33,7 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
+    setErrorMessage("");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -41,6 +43,11 @@ export default function Contact() {
       if (res.ok) {
         setStatus("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setStatus("idle"), 5000);
+      } else if (res.status === 429) {
+        const data = await res.json().catch(() => ({}));
+        setErrorMessage(data.error || "Too many requests. Please try again later.");
+        setStatus("error");
         setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
@@ -150,6 +157,9 @@ export default function Contact() {
               {status === "success" && (<>Message Sent! <CheckCircle size={15} /></>)}
               {status === "error" && (<>Error Sending <XCircle size={15} /></>)}
             </button>
+            {status === "error" && errorMessage && (
+              <p className="text-xs text-red-400 mt-3 text-center">{errorMessage}</p>
+            )}
           </motion.form>
         </div>
       </div>
