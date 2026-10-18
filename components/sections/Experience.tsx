@@ -1,58 +1,66 @@
-"use client";
-import React from "react";
-import { motion } from "framer-motion";
-import SectionHeader from "@/components/ui/SectionHeader";
 import { experiences } from "@/lib/data/experience";
+
+const journeySummary = [
+  { big: "2019", label: "Started coding at 14 with Arduino" },
+  { big: "2", label: "Hackathon wins: HackwithMAIT and Google Developer Challenge" },
+  { big: "1", label: "Venture: CollegePaglu" },
+  { big: "1,500+", label: "Users, live on Google Play" },
+];
 
 export default function Experience() {
   return (
-    <section id="experience" className="bg-[#05070d] text-white py-24 px-6 relative overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-purple-500/4 blur-3xl rounded-full -z-10" />
+    <section id="log" className="border-y border-white/10 bg-panel">
+      <div className="wrap pb-[clamp(64px,8vw,120px)] pt-[clamp(64px,8vw,120px)]">
+        <div className="rv mb-14">
+          <p className="mb-[18px] font-mono text-[13px] uppercase tracking-[.14em] text-ac">03 — Operator log</p>
+          <h2 className="text-[clamp(44px,6.6vw,96px)] font-bold leading-[.98] tracking-[-0.05em]">
+            Shipped to <span className="font-serif italic text-ac">real users.</span>
+          </h2>
+        </div>
 
-      <div className="max-w-5xl mx-auto">
-        <SectionHeader
-          eyebrow="Work history"
-          title="Professional"
-          highlight="Experience"
-          description="Building scalable products for teams, audiences, and clients."
-        />
-
-        <div className="relative border-l border-white/8 pl-8 md:pl-10 space-y-10">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="relative group"
-            >
-              {/* Timeline dot */}
-              <div className="absolute -left-[40px] md:-left-[48px] top-6 w-4 h-4 rounded-full border border-blue-400/60 bg-[#05070d] flex items-center justify-center transition-all duration-300 group-hover:scale-125 group-hover:border-cyan-400 group-hover:shadow-[0_0_10px_rgba(34,211,238,0.4)]">
-                <div className="w-1.5 h-1.5 bg-blue-400 rounded-full group-hover:bg-cyan-400 transition-colors" />
-              </div>
-
-              {/* Card */}
-              <div className="bg-white/3 border border-white/8 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/5 hover:border-blue-500/20 transition-all duration-300 hover:scale-[1.01]">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
-                  <h3 className="text-lg font-semibold text-white leading-snug">
-                    {exp.role}{" "}
-                    <span className="text-blue-400">@ {exp.company}</span>
-                  </h3>
-                  <span className="shrink-0 text-xs font-medium text-gray-500 bg-white/5 px-3 py-1 rounded-full border border-white/5 self-start">
-                    {exp.duration}
-                  </span>
+        <div className="relative pl-[clamp(20px,4vw,48px)]">
+          <div
+            aria-hidden="true"
+            className="tl absolute bottom-2 left-0 top-2 w-px bg-[linear-gradient(var(--ac),rgba(243,241,234,.1))]"
+          />
+          {experiences.map((experience) => (
+            <div key={experience.role + experience.company} className="row rv py-9 pr-6">
+              <span
+                aria-hidden="true"
+                className="core absolute top-[46px] h-[11px] w-[11px] rounded-full bg-ac"
+                style={{ left: "calc(-1 * clamp(20px, 4vw, 48px) - 5px)" }}
+              />
+              <div className="flex flex-wrap justify-between gap-x-12 gap-y-5">
+                <div className="flex-[1_1_280px]">
+                  <p className="font-mono text-[13px] text-ac">{experience.duration}</p>
+                  <h3 className="mt-3.5 text-[clamp(28px,3.2vw,40px)] font-bold leading-[1.05] tracking-[-0.04em]">{experience.role}</h3>
+                  <p className="mt-2.5 text-lg text-mut">{experience.company}</p>
                 </div>
-                <ul className="mt-4 space-y-2.5">
-                  {exp.highlights.map((highlight) => (
-                    <li key={highlight} className="relative pl-4 text-sm leading-relaxed text-gray-400 before:absolute before:left-0 before:top-[0.55rem] before:h-1.5 before:w-1.5 before:rounded-full before:bg-blue-400">
-                      {highlight}
-                    </li>
+                <ul className="m-0 flex flex-[1.6_1_380px] list-none flex-col gap-4 p-0 text-[17px] leading-[1.55] text-body">
+                  {experience.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </div>
           ))}
+        </div>
+
+        <div className="mt-24">
+          <div className="rv mb-12 text-center">
+            <p className="mb-4 font-mono text-[13px] uppercase tracking-[.14em] text-mut">The journey so far</p>
+            <p className="mx-auto max-w-[900px] font-serif text-[clamp(36px,5vw,68px)] italic leading-none tracking-[-0.02em]">
+              From a 9th-grade Arduino to a <span className="text-ac">Play Store launch.</span>
+            </p>
+          </div>
+          <div className="rv grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] border-t border-white/[.14]">
+            {journeySummary.map((item) => (
+              <div key={item.label} className="jstat">
+                <div className="text-[clamp(34px,3.6vw,52px)] font-bold leading-none tracking-[-0.05em]">{item.big}</div>
+                <div className="mt-2.5 font-mono text-[11px] uppercase leading-normal tracking-[.1em] text-mut">{item.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

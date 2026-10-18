@@ -1,25 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+
+const display = Bricolage_Grotesque({
+  variable: "--font-display",
   subsets: ["latin"],
+  axes: ["opsz"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrument = Instrument_Serif({
+  variable: "--font-instrument",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+});
+
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Shubham Solanki — Product Engineer & AI Builder",
   description:
-    "Portfolio of Shubham Solanki — Product Engineer and AI Builder. Building systems that people actually use.",
-  keywords: ["Shubham Solanki", "Product Engineer", "AI Builder", "Full Stack Developer", "Delhi"],
+    "Shubham Solanki builds products people come back to. CollegePaglu, MicroKahani and Broll AI.",
+  keywords: ["Shubham Solanki", "Product Engineer", "AI Builder", "Full Stack Developer", "Broll AI", "CollegePaglu"],
   openGraph: {
     title: "Shubham Solanki — Product Engineer & AI Builder",
-    description: "Building systems that people actually use.",
+    description: "I turn wild ideas into live products.",
     type: "website",
   },
 };
@@ -32,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${display.variable} ${instrument.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}

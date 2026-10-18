@@ -1,32 +1,84 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { ArrowUpRight, Sparkles } from "lucide-react";
-import SectionHeader from "@/components/ui/SectionHeader";
+import { ArrowUpRight } from "lucide-react";
+import CountUp from "@/components/ui/CountUp";
 import { projects } from "@/lib/data/projects";
 
-export default function Projects() {
-  const [featured, ...moreProjects] = projects;
+const moreProjects = projects.filter((project) => !project.featured);
+
+function SectionHead() {
   return (
-    <section id="projects" className="relative overflow-hidden px-6 py-24 text-white md:py-32">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_75%_45%,rgba(14,165,233,.1),transparent_28rem)]" />
-      <div className="mx-auto max-w-6xl">
-        <SectionHeader eyebrow="Selected work" title="Proof, not just" highlight="promises." description="A few products where I owned the hard parts—from the first idea to real users." />
-        <motion.article initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group relative overflow-hidden rounded-[1.75rem] border border-sky-300/20 bg-linear-to-br from-sky-400/12 via-[#101725] to-[#0d111b] p-7 md:p-10">
-          <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-sky-400/10 blur-3xl transition group-hover:bg-sky-400/15" />
-          <div className="relative grid gap-8 md:grid-cols-[1.2fr_.8fr] md:items-end">
-            <div><div className="mb-7 inline-flex items-center gap-2 rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-amber-200"><Sparkles size={12} /> Featured product</div><p className="text-sm text-sky-200/80">01 / Product engineering</p><h3 className="mt-3 text-4xl font-semibold tracking-[-.055em] md:text-5xl">{featured.name}</h3><p className="mt-5 max-w-xl text-base leading-relaxed text-slate-300">{featured.desc}</p><div className="mt-7 flex flex-wrap gap-2">{featured.tags.map((tag) => <span key={tag} className="rounded-full border border-white/10 bg-black/15 px-3 py-1.5 text-xs text-slate-300">{tag}</span>)}</div></div>
-            <div className="rounded-2xl border border-white/10 bg-black/15 p-5 md:p-6"><p className="text-xs uppercase tracking-[.16em] text-slate-500">Outcome</p><p className="mt-3 text-3xl font-semibold tracking-tight text-white">1500+ students onboarded</p><p className="mt-2 text-sm leading-relaxed text-slate-400">A unified campus platform that brings commerce, orders, and community services into one app.</p><a href={featured.link} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-sky-100">View on Google Play <ArrowUpRight size={16} /></a></div>
+    <div className="rv mb-14 flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+      <div>
+        <p className="mb-[18px] font-mono text-[13px] uppercase tracking-[.14em] text-ac">01 — Selected work</p>
+        <h2 className="text-[clamp(44px,6.6vw,96px)] font-bold leading-[.98] tracking-[-0.05em]">
+          Proof, not <span className="font-serif italic text-ac">promises.</span>
+        </h2>
+      </div>
+      <p className="max-w-[340px] text-[17px] leading-[1.55] text-mut">
+        Products where I owned the hard parts, from first idea to real users.
+      </p>
+    </div>
+  );
+}
+
+export default function Projects() {
+  const featured = projects.find((project) => project.featured);
+
+  return (
+    <section id="work" className="wrap pb-[clamp(56px,7vw,96px)] pt-[clamp(40px,6vw,88px)]">
+      <SectionHead />
+
+      {featured && (
+        <div className="gb rv">
+          <div className="relative flex flex-wrap items-end justify-between gap-10 overflow-hidden rounded-[29px] bg-[#0F0F11] p-[clamp(28px,4vw,56px)]">
+            <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-[120px] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(200,255,61,.16),transparent_70%)]" />
+            <div className="relative min-w-0 flex-[1_1_440px]">
+              <span className="inline-flex min-h-8 items-center gap-2.5 rounded-full bg-ac/[.12] px-3.5 font-mono text-xs uppercase tracking-[.1em] text-ac">
+                <span className="relative inline-flex h-[7px] w-[7px]">
+                  <span className="ping absolute inset-0 rounded-full bg-ac" />
+                  <span className="relative h-[7px] w-[7px] rounded-full bg-ac" />
+                </span>
+                Featured · Live on Google Play
+              </span>
+              <h3 className="mt-7 text-[clamp(48px,7vw,104px)] font-bold leading-[.95] tracking-[-0.055em]">{featured.name}</h3>
+              <p className="mt-6 max-w-[520px] text-lg leading-[1.6] text-soft">
+                A student super-app for campus commerce, food ordering, deliveries and community services, built for real-time orders and authentication.
+              </p>
+              <div className="mt-8">
+                <a className="btn-p" href={featured.link} target="_blank" rel="noreferrer">
+                  View on Google Play <ArrowUpRight size={18} strokeWidth={2.4} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+            <div className="relative flex-[0_1_380px]">
+              <div className="shim text-[clamp(88px,12vw,176px)] font-extrabold leading-[.85] tracking-[-0.05em]">
+                <CountUp to={1500} />+
+              </div>
+              <div className="mt-4 font-mono text-[13px] uppercase tracking-[.12em] text-soft">students onboarded</div>
+            </div>
           </div>
-        </motion.article>
-        <div className="mt-5 grid gap-5 md:grid-cols-3">
-          {moreProjects.map((project, index) => <motion.article key={project.name} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }} className="group flex min-h-80 flex-col rounded-2xl border border-white/9 bg-white/2.5 p-6 transition hover:-translate-y-1 hover:border-sky-300/25 hover:bg-white/4.5"><div className="flex items-start justify-between"><span className="text-sm font-mono text-slate-600">0{index + 2}</span>{project.featured && <span className="text-[10px] font-medium uppercase tracking-wider text-sky-300">Featured</span>}</div><h3 className="mt-10 text-xl font-semibold tracking-tight text-white">{project.name}</h3><p className="mt-3 flex-1 text-sm leading-relaxed text-slate-400">{project.desc}</p><div className="mt-6 flex flex-wrap gap-1.5">{project.tags.slice(0, 3).map((tag) => <span key={tag} className="text-[11px] text-slate-500">{tag}</span>)}</div><div className="mt-5 flex gap-4 border-t border-white/8 pt-4"><a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-sm font-medium text-sky-300 hover:text-sky-100">View <ArrowUpRight size={14} /></a>{project.github && <a href={project.github} target="_blank" rel="noreferrer" className="text-sm text-slate-500 hover:text-white">Source</a>}</div></motion.article>)}
         </div>
-        <div className="mt-10 text-center">
-          <a href="https://github.com/iamshubham1704" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/4 px-5 py-3 text-sm font-medium text-slate-300 transition hover:-translate-y-0.5 hover:border-sky-300/40 hover:bg-white/8 hover:text-white">
-            More on GitHub <ArrowUpRight size={16} />
+      )}
+
+      <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
+        {moreProjects.map((project, index) => (
+          <a
+            key={project.name}
+            className="card rv min-h-[380px] p-8"
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div className="relative flex items-center justify-between">
+              <span className="font-mono text-[13px] text-mut">0{index + 2}</span>
+              <span className="arr inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20">
+                <ArrowUpRight size={18} strokeWidth={2.2} aria-hidden="true" />
+              </span>
+            </div>
+            <h3 className="relative mt-12 text-[28px] font-bold leading-[1.1] tracking-[-0.035em]">{project.name}</h3>
+            <p className="relative mt-4 flex-grow text-base leading-[1.6] text-mut">{project.desc}</p>
+            <p className="relative mt-7 font-mono text-xs leading-[1.8] text-ac">{project.tags.join(" · ")}</p>
           </a>
-        </div>
+        ))}
       </div>
     </section>
   );

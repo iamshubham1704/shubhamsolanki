@@ -1,25 +1,29 @@
 import Navbar from "@/components/ui/Navbar";
-import ScrollProgress from "@/components/ui/ScrollProgress";
 import Hero from "@/components/sections/Hero";
-import Timeline from "@/components/sections/Timeline";
+import Marquee from "@/components/sections/Marquee";
+import Stats from "@/components/sections/Stats";
+import NowBuilding from "@/components/sections/NowBuilding";
+import Manifesto from "@/components/sections/Manifesto";
 import Projects from "@/components/sections/Projects";
+import Field from "@/components/sections/Field";
 import Experience from "@/components/sections/Experience";
-import Skills from "@/components/sections/Skills";
-import Contact from "@/components/sections/Contact";
+import Closing from "@/components/sections/Closing";
 import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <div className="site-shell">
-      <ScrollProgress />
+    <div className="pg">
       <Navbar />
       <main>
         <Hero />
-        <Timeline />
+        <Marquee />
+        <Stats />
+        <NowBuilding />
+        <Manifesto />
         <Projects />
+        <Field />
         <Experience />
-        <Skills />
-        <Contact />
+        <Closing />
       </main>
       <Footer />
     </div>
